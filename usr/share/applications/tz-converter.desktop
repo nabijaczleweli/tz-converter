@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TZ Converter
+Version=1.0.0
+Comment=Game developed for PyWeek 5
+GenericName=tz-converter
+Terminal=false
+Icon=Saki-NuoveXT-Apps-world-clock.ico
+Type=Application
+Exec=python /usr/share/tz-converter/TZ\ Converter
+Categories=Productivity;
