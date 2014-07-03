@@ -1,0 +1,14 @@
+Source: tz-converter
+Maintainer: David Maiorino (Dave) <maiorinodavid@gmail.com>
+Section: python
+Priority: optional
+Build-Depends:  python3 (>= 3.4), debhelper (>= 7.4.3) 
+Depends: python3, python3-pyside, python-dateutil
+Standards-Version: 3.9.5
+X-Python3-Version: >= 3.4
+
+Package: tz-converter
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: An application for converting the time across time zones
+

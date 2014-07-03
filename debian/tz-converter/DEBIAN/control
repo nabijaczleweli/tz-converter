@@ -1,0 +1,9 @@
+Package: tz-converter
+Version: 1.0.0-1
+Architecture: all
+Maintainer: David Maiorino (Dave) <maiorinodavid@gmail.com>
+Installed-Size: 1307
+Depends: python, python-support (>= 0.90.0)
+Section: python
+Priority: optional
+Description: An application for converting the time across time zones
