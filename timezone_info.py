@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 
 Contains getters for cities in a specific region.

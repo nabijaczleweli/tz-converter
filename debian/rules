@@ -4,8 +4,14 @@
 # Wed, 02 Jul 2014 00:14:08 +0900
 
 %:
-	dh $@ --with-python3
+	dh_python3 $@
+	dh binary
 
 override_dh_auto_install:
 	python setup.py install --root=debian/tz-converter --install-layout=deb --install-lib=/usr/share/tz-converter --install-scripts=/usr/share/tz-converter --install-data=/usr/share/tz-converter
+
+
 override_dh_auto_build:
+
+clean:
+	dh_clean

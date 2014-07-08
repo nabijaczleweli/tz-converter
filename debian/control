@@ -2,13 +2,11 @@ Source: tz-converter
 Maintainer: David Maiorino (Dave) <maiorinodavid@gmail.com>
 Section: python
 Priority: optional
-Build-Depends:  python3 (>= 3.4), debhelper (>= 7.4.3) 
-Depends: python3, python3-pyside, python-dateutil
+Build-Depends:  debhelper, python-all (>= 2.6.6-3~), python-setuptools, python3-all, python3-setuptools, python-support
 Standards-Version: 3.9.5
-X-Python3-Version: >= 3.4
+X-Python3-Version: >= 3.2
 
 Package: tz-converter
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}
-Description: An application for converting the time across time zones
-
+Depends: ${misc:Depends}, ${python:Depends}, python3, python3-pyside, python-dateutil
+Description: Convert the time and date across time zones

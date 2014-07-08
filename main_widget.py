@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import sys
 import os
 real_path = os.path.dirname(os.path.realpath(__file__))
