@@ -1,3 +1,9 @@
+tz-converter (1.0.0-3ppa1~trusty) trusty; urgency=low
+
+  * Updating for PPA 
+
+ -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Sat, 12 Jul 2014 12:41:40 +0900
+
 tz-converter (1.0.0-2) trusty; urgency=low
 
   [ David Maiorino (Dave) ]
