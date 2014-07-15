@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=tz-converter
+Comment=Multiple terminals in one window
+TryExec=tz-converter
+Exec=tz-converter
+Icon=tz-converter
+Type=Application
+Categories=Utility;
+StartupNotify=true
+X-Ubuntu-Gettext-Domain=tz-converter
+X-Ayatana-Desktop-Shortcuts=NewWindow;
+Keywords=time;tz;time zone;
+Icon=/usr/share/tz-converter/icons/Saki-NuoveXT-Apps-world-clock.ico
