@@ -3,7 +3,6 @@ Name=tz-converter
 Comment=Multiple terminals in one window
 TryExec=tz-converter
 Exec=tz-converter
-Icon=tz-converter
 Type=Application
 Categories=Utility;
 StartupNotify=true
