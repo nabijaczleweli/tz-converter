@@ -1,4 +1,5 @@
-from setuptools import setup
+from distutils.core import setup
+#from setuptools import setup
 import os
 
 def gen_data_files(*dirs):
@@ -18,6 +19,5 @@ setup(name='tz-converter',
       license='GNU',
       keywords='productivity',
       scripts = ["tz-converter", "main_widget.py", "timezone_info.py"],
-      data_files = gen_data_files("lib", "icons"),
       install_requires=['PySide', 'DateTime']
       )
