@@ -7,10 +7,10 @@ sys.path.append(u'%s/lib' % real_path)
 from PySide.QtGui import QWidget, QGroupBox, QVBoxLayout, QHBoxLayout, QTimeEdit, QCalendarWidget, QComboBox, \
     QPushButton, QIcon
 from PySide.QtCore import QTime, QDate
-from tzlocal import get_localzone
 import timezone_info
 import datetime
-from delorean import Delorean
+from pytz import timezone
+
 
 
 class MainWidget(QWidget):
@@ -73,10 +73,24 @@ class MainWidget(QWidget):
 
     def set_local_country(self):
         global_timezone_list = timezone_info.get_global_timezone_list()
-        local_tz_index = global_timezone_list.index(str(get_localzone()))
+        local_tz_index = global_timezone_list.index(str(self.get_local_timezone()))
         self.time_one_country_combobox.addItems(global_timezone_list)
         self.time_one_country_combobox.setCurrentIndex(local_tz_index)
         self.time_two_country_combobox.addItems(global_timezone_list)
+
+    # To-do: Current solution works for Debian systems. Need to find repo solution that
+    # allows for something like "from tzlocal import get_localzone"
+    @staticmethod
+    def get_local_timezone():
+        timezone_file = '/etc/timezone'
+        try:
+            file = open(timezone_file, 'r')
+            system_timezone = file.read().rstrip()
+        except IOError:
+            print("Unable to open %s") & timezone_file
+            system_timezone = 'UTC'
+
+        return system_timezone
 
     @staticmethod
     def get_local_times():
@@ -95,7 +109,7 @@ class MainWidget(QWidget):
         # Set date for one calendar
         self.time_one_calendar.setSelectedDate(QDate.currentDate())
 
-        #convert the second time based on the first
+        # Convert the second time based on the first
         self.convert_timeone_to_timetwo()
 
     def set_local_time_two(self):
@@ -107,17 +121,19 @@ class MainWidget(QWidget):
         # Set date for one calendar
         self.time_two_calendar.setSelectedDate(QDate.currentDate())
 
-        #convert the first time based on the second
+        # Convert the first time based on the second
         self.convert_timetwo_to_timeone()
 
     def time_one_connect(self):
         self.time_one_country_combobox.activated.connect(self.convert_timeone_to_timetwo)
         self.time_one_calendar.clicked.connect(self.convert_timeone_to_timetwo)
+        self.time_one_calendar.currentPageChanged.connect(self.convert_timeone_to_timetwo)
         self.time_one_time_edit.timeChanged.connect(self.convert_timeone_to_timetwo)
 
     def time_two_connect(self):
         self.time_two_country_combobox.activated.connect(self.convert_timeone_to_timetwo)
         self.time_two_calendar.clicked.connect(self.convert_timetwo_to_timeone)
+        self.time_two_calendar.currentPageChanged.connect(self.convert_timetwo_to_timeone)
         self.time_two_time_edit.timeChanged.connect(self.convert_timetwo_to_timeone)
 
     def time_one_disconnect(self):
@@ -134,51 +150,56 @@ class MainWidget(QWidget):
         self.time_one_country_combobox.clear()
         self.time_two_country_combobox.clear()
 
-    def convert_timeone_to_timetwo(self):
+    def test_func(self):
+        print("Sent!")
 
-        #Diconnecting time two widgets,so that they do not run
+    def convert_timeone_to_timetwo(self):
+        # Disconnect time two widgets,so that they do not run
         self.time_two_disconnect()
 
-        date_time_one = datetime.datetime(self.time_one_calendar.selectedDate().year(),
-                                          self.time_one_calendar.selectedDate().month(),
+        date_time_one = datetime.datetime(self.time_one_calendar.yearShown(),
+                                          self.time_one_calendar.monthShown(),
                                           self.time_one_calendar.selectedDate().day(),
                                           self.time_one_time_edit.time().hour(),
                                           self.time_one_time_edit.time().minute())
 
-        d = Delorean(datetime=date_time_one, timezone=self.time_one_country_combobox.currentText())
-        d.shift(self.time_two_country_combobox.currentText())
-        new_timezone_two = d.datetime
+        first_tz = timezone(self.time_one_country_combobox.currentText())
+        second_tz = timezone(self.time_two_country_combobox.currentText())
 
-        new_date_two = QDate(new_timezone_two.year, new_timezone_two.month, new_timezone_two.day)
+        first_dt = first_tz.localize(date_time_one)
+        second_dt = first_dt.astimezone(second_tz)
+
+        new_date_two = QDate(second_dt.year, second_dt.month, second_dt.day)
         self.time_two_calendar.setSelectedDate(new_date_two)
 
-        new_time_two = QTime(int(new_timezone_two.hour), int(new_timezone_two.minute))
+        new_time_two = QTime(int(second_dt.hour), int(second_dt.minute))
         self.time_two_time_edit.setTime(new_time_two)
 
-        #Reconnect time one widgets.
+        # Reconnect time one widgets.
         self.time_two_connect()
 
     def convert_timetwo_to_timeone(self):
 
-        #Diconnecting time one widgets,so that they do not run
+        # Disconnect time one widgets,so that they do not run
         self.time_one_disconnect()
 
-        date_time_two = datetime.datetime(self.time_two_calendar.selectedDate().year(),
-                                          self.time_two_calendar.selectedDate().month(),
+        date_time_two = datetime.datetime(self.time_two_calendar.yearShown(),
+                                          self.time_two_calendar.monthShown(),
                                           self.time_two_calendar.selectedDate().day(),
                                           self.time_two_time_edit.time().hour(),
                                           self.time_two_time_edit.time().minute())
 
+        first_tz = timezone(self.time_one_country_combobox.currentText())
+        second_tz = timezone(self.time_two_country_combobox.currentText())
 
-        d = Delorean(datetime=date_time_two, timezone=self.time_two_country_combobox.currentText())
-        d.shift(self.time_one_country_combobox.currentText())
-        new_timezone_one = d.datetime
+        second_dt = second_tz.localize(date_time_two)
+        first_dt = second_dt.astimezone(first_tz)
 
-        new_date_one = QDate(new_timezone_one.year, new_timezone_one.month, new_timezone_one.day)
+        new_date_one = QDate(first_dt.year, first_dt.month, first_dt.day)
         self.time_one_calendar.setSelectedDate(new_date_one)
 
-        new_time_one = QTime(int(new_timezone_one.hour), int(new_timezone_one.minute))
+        new_time_one = QTime(int(first_dt.hour), int(first_dt.minute))
         self.time_one_time_edit.setTime(new_time_one)
 
-        #Reconnect time one widgets
+        # Reconnect time one widgets
         self.time_one_connect()
