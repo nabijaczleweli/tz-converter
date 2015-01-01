@@ -21,11 +21,11 @@ class TzInterface(QMainWindow):
         self.central_widget = main_widget.MainWidget()
         self.setCentralWidget(self.central_widget)
 
-        #Set Icon
+        # Set Icon
         self.appIcon = QIcon('%s/icons/Saki-NuoveXT-Apps-world-clock.ico' % real_path)
         self.setWindowIcon(self.appIcon)
 
-        #Set Default as Global
+        # Set Default as Global
         self.set_global.setChecked(True)
 
     def setup_menu(self):
@@ -34,7 +34,7 @@ class TzInterface(QMainWindow):
         """
         self.create_actions()
         self.create_menus()
-        #File menu
+        # File menu
         self.file_menu.addAction(self.action_reset)
         self.file_menu.addAction(self.action_load)
         self.file_menu.addAction(self.action_save)
@@ -62,8 +62,8 @@ class TzInterface(QMainWindow):
         help_box.setWindowTitle("TZ Converter")
         help_box.setIconPixmap(QPixmap('%s/icons/Saki-NuoveXT-Apps-world-clock.ico' % real_path))
         help_box.setText("<b>TZ Converter 1.0</b><br>A simple application for converting the time across time zones.")
-        help_box.setInformativeText("Copyright 2104 David Maiorino<br><br>"
-                                    "<a href='https://github.com/DMaiorino/tz-converter'>Fork me on Github!</a><br><br>"
+        help_box.setInformativeText("Copyright 2014 David Maiorino<br><br>"
+                                    "<a href='https://github.com/DMaiorino/tz_converter'>Fork me on Github!</a><br><br>"
                                     "Icon by Alexandre Moore: "
                                     "<a href='"
                                     "http://www.iconarchive.com/show/nuoveXT-icons-by-saki/Apps-world-clock-icon.html'>"
@@ -84,22 +84,36 @@ class TzInterface(QMainWindow):
 
     # Create Actions for the menu
     def create_actions(self):
-        self.action_help = QAction('About TZ Converter', self, statusTip="About Time Zone Converter", triggered=self.about_help)
-        self.action_about_qt = QAction('About Qt', self, statusTip="Show the Qt Library's About Box", triggered=qApp.aboutQt)
-        self.action_reset = QAction('Reset', self, statusTip="Reset Save/Load", shortcut="Ctrl+R", triggered=self.reset_setting)
-        self.action_save = QAction('Save', self, statusTip="Save current times", shortcut="Ctrl+S", triggered=self.write_setting)
-        self.action_load = QAction('Load', self, statusTip="Load saved times", shortcut="Ctrl+L", triggered=self.restore_setting)
-        self.action_quit = QAction('Quit', self, statusTip="Quit Time Zone Converter", shortcut="Ctrl+Q", triggered=self.quit_application)
-        self.set_us = QAction('US', self, statusTip="Set for US region", shortcut="Ctrl+U", triggered=self.set_timezone_region_us, checkable=True)
-        self.set_america = QAction('America', self, statusTip="Set for America region", shortcut="Ctrl+M", triggered=self.set_timezone_region_america, checkable=True)
-        self.set_asia = QAction('Asia', self, statusTip="Set for Asia region", shortcut="Ctrl+A", triggered=self.set_timezone_region_asia, checkable=True)
-        self.set_africa = QAction('Africa', self, statusTip="Set for Africa region", shortcut="Ctrl+f", triggered=self.set_timezone_region_africa, checkable=True)
-        self.set_australia = QAction('Australia', self, statusTip="Set for Australia region", shortcut="Ctrl+S", triggered=self.set_timezone_region_australia, checkable=True)
-        self.set_europe = QAction('Europe', self, statusTip="Set for Europe region", shortcut="Ctrl+E", triggered=self.set_timezone_region_europe, checkable=True)
-        self.set_pacific = QAction('Pacific', self, statusTip="Set for Pacific region", shortcut="Ctrl+P", triggered=self.set_timezone_region_pacific, checkable=True)
-        self.set_global = QAction('Global', self, statusTip="Set for Global region", shortcut="Ctrl+G", triggered=self.set_timezone_region_global, checkable=True)
+        self.action_help = QAction('About TZ Converter', self, statusTip="About Time Zone Converter",
+                                   triggered=self.about_help)
+        self.action_about_qt = QAction('About Qt', self, statusTip="Show the Qt Library's About Box",
+                                       triggered=qApp.aboutQt)
+        self.action_reset = QAction('Reset', self, statusTip="Reset Save/Load", shortcut="Ctrl+R",
+                                    triggered=self.reset_setting)
+        self.action_save = QAction('Save', self, statusTip="Save current times", shortcut="Ctrl+S",
+                                   triggered=self.write_setting)
+        self.action_load = QAction('Load', self, statusTip="Load saved times", shortcut="Ctrl+L",
+                                   triggered=self.restore_setting)
+        self.action_quit = QAction('Quit', self, statusTip="Quit Time Zone Converter", shortcut="Ctrl+Q",
+                                   triggered=self.quit_application)
+        self.set_us = QAction('US', self, statusTip="Set for US region", shortcut="Ctrl+U",
+                              triggered=self.set_timezone_region_us, checkable=True)
+        self.set_america = QAction('America', self, statusTip="Set for America region", shortcut="Ctrl+M",
+                                   triggered=self.set_timezone_region_america, checkable=True)
+        self.set_asia = QAction('Asia', self, statusTip="Set for Asia region", shortcut="Ctrl+A",
+                                triggered=self.set_timezone_region_asia, checkable=True)
+        self.set_africa = QAction('Africa', self, statusTip="Set for Africa region", shortcut="Ctrl+f",
+                                  triggered=self.set_timezone_region_africa, checkable=True)
+        self.set_australia = QAction('Australia', self, statusTip="Set for Australia region", shortcut="Ctrl+S",
+                                     triggered=self.set_timezone_region_australia, checkable=True)
+        self.set_europe = QAction('Europe', self, statusTip="Set for Europe region", shortcut="Ctrl+E",
+                                  triggered=self.set_timezone_region_europe, checkable=True)
+        self.set_pacific = QAction('Pacific', self, statusTip="Set for Pacific region", shortcut="Ctrl+P",
+                                   triggered=self.set_timezone_region_pacific, checkable=True)
+        self.set_global = QAction('Global', self, statusTip="Set for Global region", shortcut="Ctrl+G",
+                                  triggered=self.set_timezone_region_global, checkable=True)
 
-    #Actual menu bar item creation
+    # Actual menu bar item creation
     def create_menus(self):
         """
         Create the actual menu bar
@@ -190,6 +204,7 @@ class TzInterface(QMainWindow):
             return "Pacific"
         else:
             return "Global"
+
 
     def set_checked_region(self, region):
         self.remove_all_checks()

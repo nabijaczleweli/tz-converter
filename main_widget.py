@@ -12,7 +12,6 @@ import datetime
 from pytz import timezone
 
 
-
 class MainWidget(QWidget):
 
     def __init__(self):
@@ -150,12 +149,26 @@ class MainWidget(QWidget):
         self.time_one_country_combobox.clear()
         self.time_two_country_combobox.clear()
 
-    def test_func(self):
-        print("Sent!")
+    def __amend_country_region(self):
+        """
+        Used to add the regional header before converting if a region outside of global is used.
+        """
+
+        current_region = timezone_info.get_city_region(self.time_one_country_combobox.currentText())
+        time_one_country = self.time_one_country_combobox.currentText()
+        time_two_country = self.time_two_country_combobox.currentText()
+
+        if '/' not in time_one_country:
+            time_one_country = current_region+'/'+self.time_one_country_combobox.currentText()
+            time_two_country = current_region+'/'+self.time_two_country_combobox.currentText()
+
+        return time_one_country, time_two_country
 
     def convert_timeone_to_timetwo(self):
         # Disconnect time two widgets,so that they do not run
         self.time_two_disconnect()
+
+        time_one_country, time_two_country = self.__amend_country_region()
 
         date_time_one = datetime.datetime(self.time_one_calendar.yearShown(),
                                           self.time_one_calendar.monthShown(),
@@ -163,8 +176,8 @@ class MainWidget(QWidget):
                                           self.time_one_time_edit.time().hour(),
                                           self.time_one_time_edit.time().minute())
 
-        first_tz = timezone(self.time_one_country_combobox.currentText())
-        second_tz = timezone(self.time_two_country_combobox.currentText())
+        first_tz = timezone(time_one_country)
+        second_tz = timezone(time_two_country)
 
         first_dt = first_tz.localize(date_time_one)
         second_dt = first_dt.astimezone(second_tz)
@@ -183,14 +196,16 @@ class MainWidget(QWidget):
         # Disconnect time one widgets,so that they do not run
         self.time_one_disconnect()
 
+        time_one_country, time_two_country = self.__amend_country_region()
+
         date_time_two = datetime.datetime(self.time_two_calendar.yearShown(),
                                           self.time_two_calendar.monthShown(),
                                           self.time_two_calendar.selectedDate().day(),
                                           self.time_two_time_edit.time().hour(),
                                           self.time_two_time_edit.time().minute())
 
-        first_tz = timezone(self.time_one_country_combobox.currentText())
-        second_tz = timezone(self.time_two_country_combobox.currentText())
+        first_tz = timezone(time_one_country)
+        second_tz = timezone(time_two_country)
 
         second_dt = second_tz.localize(date_time_two)
         first_dt = second_dt.astimezone(first_tz)
