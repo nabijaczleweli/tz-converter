@@ -1,4 +1,3 @@
 debian/tz-converter.desktop /usr/share/applications
 debian/tz-converter.1.gz /usr/share/man/man1
-lib /usr/share/tz-converter
 icons /usr/share/tz-converter

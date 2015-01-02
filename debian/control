@@ -9,7 +9,7 @@ Homepage: https://github.com/DMaiorino/tz-converter
 
 Package: tz-converter
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, python3, python3-pyside, python3-dateutil
+Depends: ${misc:Depends}, ${python3:Depends}, python3, python3-pyside, python-dateutil
 Description: Convert the time and date across time zones
  A simple interface for converting the time and date between two time zones. 
  Written in Python3 and using Pyside, this interface allows the user to save a 

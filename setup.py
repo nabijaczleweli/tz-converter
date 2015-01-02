@@ -18,6 +18,6 @@ setup(name='tz-converter',
       url='https://github.com/DMaiorino/tz-converter',
       license='GNU',
       keywords='productivity',
-      scripts=["tz_converter", "main_widget.py", "timezone_info.py"],
+      scripts=["tz-converter", "main_widget.py", "timezone_info.py"],
       install_requires=['PySide', 'DateTime']
       )
