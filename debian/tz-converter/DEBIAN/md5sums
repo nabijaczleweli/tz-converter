@@ -1,0 +1,13 @@
+d7901c168ad0d9b49e647f4ea360c57a  usr/share/applications/tz-converter.desktop
+7165cd4c04b00b0d98e63ded29a3aaaf  usr/share/doc/tz-converter/changelog.Debian.gz
+dedba598b52321b31d503155e8394644  usr/share/doc/tz-converter/copyright
+c66847dbe19cdc91bc1f1127c30748d0  usr/share/man/man1/tz-converter.1.gz
+1a6ab00ce28a23af0c47cba049756cff  usr/share/python3/runtime.d/tz-converter.rtupdate
+afa38b8f513b3c5809944502a09f57f8  usr/share/tz-converter/icons/Saki-NuoveXT-Apps-world-clock.ico
+c820036c80f1e58801559b283e4e2503  usr/share/tz-converter/icons/gnome-set-time.png
+3402474419f2c89625b289fa7d390f67  usr/share/tz-converter/main_widget.py
+e70f2bee76490db05486e04e95a74718  usr/share/tz-converter/timezone_info.py
+e515c5b0718b53aa3e9e501cc688e3cb  usr/share/tz-converter/tz-converter
+2831728a1757b2a5c245b08d38a0aa4e  usr/share/tz-converter/tz_converter-1.0.0_1.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/share/tz-converter/tz_converter-1.0.0_1.egg-info/dependency_links.txt
+68b329da9893e34099c7d8ad5cb9c940  usr/share/tz-converter/tz_converter-1.0.0_1.egg-info/top_level.txt

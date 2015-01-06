@@ -1,27 +1,5 @@
-tz-converter (1.0.0-4) stable; urgency=low
+tz-converter (1.0.0-1) unstable; urgency=low
 
   * Initial release (closes: #754287) 
 
  -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Thu, 01 Jan 2015 00:29:23 +0900
-
-tz-converter (1.0.0-3) unstable; urgency=low
-
-  * Updating for PPA 
-
- -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Sat, 12 Jul 2014 12:41:40 +0900
-
-tz-converter (1.0.0-2) unstable; urgency=low
-
-  [ David Maiorino (Dave) ]
-  * Added Copyright 
-
-  [ David Maiorino ]
-  * Made updates for Debian packaging.
-
- -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Sat, 05 Jul 2014 23:41:35 +0900
-
-tz-converter (1.0.0-1) unstable; urgency=low
-
-  * source package automatically created by stdeb 0.6.0+git
-
- -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Fri, 04 Jul 2014 14:12:00 +0900

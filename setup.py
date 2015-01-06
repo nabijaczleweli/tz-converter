@@ -1,4 +1,5 @@
-from distutils.core import setup
+from setuptools import setup
+#from distutils.core import setup
 import os
 
 
@@ -11,13 +12,12 @@ def gen_data_files(*dirs):
 
 
 setup(name='tz-converter',
-      version='1.0.0',
+      version='1.0.0-1',
       description="An application for converting the time across time zones",
       author='David Maiorino (Dave)',
       author_email='maiorinodavid@gmail.com',
       url='https://github.com/DMaiorino/tz-converter',
-      license='GNU',
+      license='GPL-3+',
       keywords='productivity',
       scripts=["tz-converter", "main_widget.py", "timezone_info.py"],
-      install_requires=['PySide', 'DateTime']
       )
