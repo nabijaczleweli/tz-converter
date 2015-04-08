@@ -1,5 +1,4 @@
 from setuptools import setup
-#from distutils.core import setup
 import os
 
 
@@ -19,5 +18,10 @@ setup(name='tz-converter',
       url='https://github.com/DMaiorino/tz-converter',
       license='GPL-3+',
       keywords='productivity',
-      scripts=["tz-converter", "main_widget.py", "timezone_info.py"],
+      scripts=["scripts/tz-converter"],
+      packages=["tz_converter"],
+      data_files=[('/usr/share/tz-converter/icons', ['tz_converter/data/icons/gnome-set-time.png', 
+                                                     'tz_converter/data/icons/Saki-NuoveXT-Apps-world-clock.ico']),
+                  ('/usr/share/man/man1/', ['tz_converter/data/manpages/tz-converter.1']),
+                  ]
       )

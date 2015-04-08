@@ -1,0 +1,7 @@
+include LICENSE.md
+include MANIFEST.in
+include AUTHORS
+recursive-include tz_converter/data/icons *
+include tz_converter/data/manpages/tz-converter.1
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

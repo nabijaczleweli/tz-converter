@@ -2,12 +2,11 @@
 
 import sys
 import os
-real_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(u'%s/lib' % real_path)
+icon_path = '/usr/share/tz-converter/icons'
 from PySide.QtGui import QWidget, QGroupBox, QVBoxLayout, QHBoxLayout, QTimeEdit, QCalendarWidget, QComboBox, \
     QPushButton, QIcon
 from PySide.QtCore import QTime, QDate
-import timezone_info
+from tz_converter import timezone_info
 import datetime
 from pytz import timezone
 
@@ -25,7 +24,7 @@ class MainWidget(QWidget):
         self.time_one_bottom_hbox = QHBoxLayout()
         self.time_one_time_edit = QTimeEdit()
         self.time_one_default_button = QPushButton()
-        self.time_one_default_button.setIcon(QIcon("%s/icons/gnome-set-time.png" % real_path))
+        self.time_one_default_button.setIcon(QIcon("%s/gnome-set-time.png" % icon_path))
         self.time_one_default_button.setMaximumSize(50, 50)
         self.time_one_bottom_hbox.addWidget(self.time_one_time_edit)
         self.time_one_bottom_hbox.addWidget(self.time_one_default_button)
@@ -42,7 +41,7 @@ class MainWidget(QWidget):
         self.time_two_bottom_hbox = QHBoxLayout()
         self.time_two_time_edit = QTimeEdit()
         self.time_two_default_button = QPushButton()
-        self.time_two_default_button.setIcon(QIcon("%s/icons/gnome-set-time.png" % real_path))
+        self.time_two_default_button.setIcon(QIcon("%s/gnome-set-time.png" % icon_path))
         self.time_two_default_button.setMaximumSize(50, 50)
         self.time_two_bottom_hbox.addWidget(self.time_two_time_edit)
         self.time_two_bottom_hbox.addWidget(self.time_two_default_button)
