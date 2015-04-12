@@ -1,5 +1,5 @@
 tz-converter (1.0.0-1) unstable; urgency=low
 
-  * Initial release (closes: #754287) 
+  * Initial release (closes: #754287)
 
- -- David Maiorino (Dave) <maiorinodavid@gmail.com>  Thu, 01 Jan 2015 00:29:23 +0900
+ -- David Maiorino <maiorinodavid@gmail.com>  Sun, 12 Apr 2015 21:32:45 +0900
