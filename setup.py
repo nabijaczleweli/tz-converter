@@ -11,11 +11,11 @@ def gen_data_files(*dirs):
 
 
 setup(name='tz-converter',
-      version='1.0.0',
+      version='1.0.1',
       description="Tool for converting the time across time zones",
       long_description=("Convert the time and date across time zones\n"
                         "This tool provides a simple interface for converting the time and\n"
-                        "date between two time zones. Written in Python3 and using Pyside,\n"
+                        "date between two time zones. Written in Python3 and using PyQt5,\n"
                         "this interface allows the user to save a certain time zone and\n"
                         "restore it after further changes. The timezone information is\n"
                         "taken from pytz, supplying seven different regions: Africa,\n"

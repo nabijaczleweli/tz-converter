@@ -3,25 +3,25 @@ Maintainer: David Maiorino <maiorinodavid@gmail.com>
 Section: python
 Priority: optional
 Build-Depends:
- debhelper (>= 9),
+ debhelper (>=10),
  dh-python,
  python3-all,
  python3-setuptools
-Standards-Version: 3.2
-X-Python3-Version: >= 3.2
+Standards-Version: 3.9.8
+X-Python3-Version: >= 3.5
 Homepage: https://github.com/DMaiorino/tz-converter
 
 Package: tz-converter
 Architecture: all
 Depends:
  python-dateutil,
- python3-pyside,
+ python3-pyqt5,
  python3-tz,
  ${misc:Depends},
  ${python3:Depends}
 Description: Convert the time and date across time zones
  This tool provides a simple interface for converting the time and date between two time zones.
- Written in Python3 and using Pyside, this interface allows the user to save a
+ Written in Python3 and using QtPy5, this interface allows the user to save a
  certain time zone and restore it after further changes. The timezone
  information is taken from pytz, supplying seven different regions:
  Africa, America, Asia, Australia, Europe, Pacific, and US.

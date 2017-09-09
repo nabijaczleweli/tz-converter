@@ -5,8 +5,9 @@ import os
 icon_path = '/usr/share/tz-converter/icons'
 from tz_converter import main_widget
 from tz_converter import timezone_info
-from PySide.QtGui import QMainWindow, QApplication, QMessageBox, QAction, qApp, QIcon, QPixmap
-from PySide.QtCore import QSettings, Qt
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction, qApp
+from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtCore import QSettings, Qt
 
 
 class TzInterface(QMainWindow):

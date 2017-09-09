@@ -1,3 +1,9 @@
+tz-converter (1.0.1-1) unstable; urgency=low
+
+  * Migrate to PyQt5
+
+ -- David Maiorino <maiorinodavid@gmail.com>  Sun, 3 Sep 2017 23:16:33 +0900
+
 tz-converter (1.0.0-1) unstable; urgency=low
 
   * Initial release (closes: #754287)

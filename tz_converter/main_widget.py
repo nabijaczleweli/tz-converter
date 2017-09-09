@@ -3,9 +3,10 @@
 import sys
 import os
 icon_path = '/usr/share/tz-converter/icons'
-from PySide.QtGui import QWidget, QGroupBox, QVBoxLayout, QHBoxLayout, QTimeEdit, QCalendarWidget, QComboBox, \
-    QPushButton, QIcon
-from PySide.QtCore import QTime, QDate
+from PyQt5.QtWidgets import QWidget, QGroupBox, QVBoxLayout, QHBoxLayout, QTimeEdit, QCalendarWidget, QComboBox, \
+    QPushButton
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QTime, QDate
 from tz_converter import timezone_info
 import datetime
 from pytz import timezone
