@@ -23,29 +23,18 @@ License: GPL-3+
  License version 3 can be found in the file
  `/usr/share/common-licenses/GPL-3'.
 
-Files: icons/Saki-NuoveXT-Apps-world-clock.ico
+Files: tz_converter/data/icons/Saki-NuoveXT-Apps-world-clock.ico
 Copyright: Alexandre Moore
 License: GNU
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- .
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License along
- with this program; if not, write to the Free Software Foundation, Inc.,
- 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-Files: icons/gnome-set-time.png
+Files: tz_converter/data/icons/gnome-set-time.png
 Copyright: 1999, 2000 Red Hat Inc.
 	   2001 Sid Vicious
     	   1999 Free Software Foundation
     	   2002, Sun Microsystems, Inc.
            2003, Kristian Rietveld
+License: GNU
+
 License: GNU
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

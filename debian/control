@@ -1,9 +1,9 @@
 Source: tz-converter
 Maintainer: David Maiorino <maiorinodavid@gmail.com>
-Section: python
+Section: utils
 Priority: optional
 Build-Depends:
- debhelper (>=10),
+ debhelper (>=9),
  dh-python,
  python3-all,
  python3-setuptools
@@ -20,8 +20,8 @@ Depends:
  ${misc:Depends},
  ${python3:Depends}
 Description: Convert the time and date across time zones
- This tool provides a simple interface for converting the time and date between two time zones.
- Written in Python3 and using QtPy5, this interface allows the user to save a
- certain time zone and restore it after further changes. The timezone
- information is taken from pytz, supplying seven different regions:
+ This tool provides a simple interface for converting the time and date between
+ two time zones. Written in Python3 and using QtPy5, this interface allows 
+ the user to save a certain time zone and restore it after further changes. The
+ timezone information is taken from pytz, supplying seven different regions:
  Africa, America, Asia, Australia, Europe, Pacific, and US.

@@ -1,4 +1,9 @@
 #!/usr/bin/make -f
 
 %:
-#	dh $@ --with python3 --buildsystem=pybuild
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_installman:
+	mkdir -p doc/man
+	cp -auxf tz_converter/data/manpages/tz-converter.1 doc/man
+	dh_installman --language=C

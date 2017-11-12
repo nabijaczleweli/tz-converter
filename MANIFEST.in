@@ -5,7 +5,6 @@ include debian/changelog
 include debian/copyright
 include debian/control
 include debian/py3dist-overrides
-include changelog.Debian.gz
 recursive-include tz_converter/data/icons *
 include tz_converter/data/manpages/tz-converter.1
 include tz_converter/data/tz-converter.desktop

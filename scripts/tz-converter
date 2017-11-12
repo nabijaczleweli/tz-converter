@@ -2,7 +2,6 @@
 
 import sys
 import os
-icon_path = '/usr/share/tz-converter/icons'
 from tz_converter import main_widget
 from tz_converter import timezone_info
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction, qApp
@@ -14,6 +13,7 @@ class TzInterface(QMainWindow):
 
     def __init__(self):
         QMainWindow.__init__(self)
+        self.icon_path = '/usr/share/tz-converter/icons'
         self.setWindowTitle("Time Zone Converter")
         self.setGeometry(100, 100, 500, 300)
         self.settings = QSettings("Application", "TZ Converter")
@@ -22,7 +22,7 @@ class TzInterface(QMainWindow):
         self.setCentralWidget(self.central_widget)
 
         # Set Icon
-        self.appIcon = QIcon('%s/Saki-NuoveXT-Apps-world-clock.ico' % icon_path)
+        self.appIcon = QIcon('%s/Saki-NuoveXT-Apps-world-clock.ico' % self.icon_path)
         self.setWindowIcon(self.appIcon)
 
         # Set Default as Global
@@ -55,12 +55,11 @@ class TzInterface(QMainWindow):
         self.help_menu.addAction(self.action_about_qt)
         self.help_menu.addAction(self.action_help)
 
-    @staticmethod
-    def about_help():
+    def about_help(self):
         help_box = QMessageBox()
         help_box.setTextFormat(Qt.RichText)
         help_box.setWindowTitle("TZ Converter")
-        help_box.setIconPixmap(QPixmap('%s/Saki-NuoveXT-Apps-world-clock.ico' % icon_path))
+        help_box.setIconPixmap(QPixmap('%s/Saki-NuoveXT-Apps-world-clock.ico' % self.icon_path))
         help_box.setText("<b>TZ Converter 1.0</b><br>A simple application for converting the time across time zones.")
         help_box.setInformativeText("Copyright 2014 David Maiorino<br><br>"
                                     "<a href='https://github.com/DMaiorino/tz_converter'>Fork me on Github!</a><br><br>"
