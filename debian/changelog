@@ -1,3 +1,15 @@
+tz-converter (1.0.2-1) UNRELEASED; urgency=medium
+
+  [ David Maiorino ]
+  * Updates based on Debian 1.0.1 review.
+
+  [ наб ]
+  * Fix /etc/timezone IOError formatting
+  * Respect timezone configured in $TZ
+  * Try /etc/localtime before Debian-specific /etc/timezone (Closes: #1038851)
+
+ -- наб <nabijaczleweli@nabijaczleweli.xyz>  Sun, 03 Nov 2024 23:23:56 +0100
+
 tz-converter (1.0.1-1) unstable; urgency=low
 
   * Migrate to PyQt5
