@@ -81,6 +81,11 @@ class MainWidget(QWidget):
     # allows for something like "from tzlocal import get_localzone"
     @staticmethod
     def get_local_timezone():
+        try:
+            return os.environ['TZ']
+        except:
+            pass
+
         timezone_file = '/etc/timezone'
         try:
             file = open(timezone_file, 'r')
