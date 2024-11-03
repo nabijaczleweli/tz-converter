@@ -86,7 +86,7 @@ class MainWidget(QWidget):
             file = open(timezone_file, 'r')
             system_timezone = file.read().rstrip()
         except IOError:
-            print("Unable to open %s") & timezone_file
+            print("Unable to open %s" % timezone_file)
             system_timezone = 'UTC'
 
         return system_timezone
