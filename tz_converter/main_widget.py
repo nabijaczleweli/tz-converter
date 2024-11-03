@@ -77,7 +77,7 @@ class MainWidget(QWidget):
         self.time_one_country_combobox.setCurrentIndex(local_tz_index)
         self.time_two_country_combobox.addItems(global_timezone_list)
 
-    # To-do: Current solution works for Debian systems. Need to find repo solution that
+    # To-do: Need to find repo solution that
     # allows for something like "from tzlocal import get_localzone"
     @staticmethod
     def get_local_timezone():
@@ -85,6 +85,15 @@ class MainWidget(QWidget):
             return os.environ['TZ']
         except:
             pass
+
+        timezone_file = '/etc/localtime'
+        try:
+            link = os.readlink(timezone_file)
+            system_timezone = link.removeprefix('/usr/share/zoneinfo/')
+            if system_timezone != link:
+                return system_timezone
+        except:
+            print("Unable to readlink %s" % timezone_file)
 
         timezone_file = '/etc/timezone'
         try:
