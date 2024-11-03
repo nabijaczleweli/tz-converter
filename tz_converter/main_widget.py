@@ -98,12 +98,11 @@ class MainWidget(QWidget):
         timezone_file = '/etc/timezone'
         try:
             file = open(timezone_file, 'r')
-            system_timezone = file.read().rstrip()
+            return file.read().rstrip()
         except IOError:
             print("Unable to open %s" % timezone_file)
-            system_timezone = 'UTC'
 
-        return system_timezone
+        return 'UTC'
 
     @staticmethod
     def get_local_times():
